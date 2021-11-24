@@ -1,0 +1,28 @@
+.wrapper {
+  display: flex;
+  flex: 0 0 188px;
+  flex-direction: column;
+  font-size: 1rem;
+  letter-spacing: -0.02em;
+  margin: 0 1rem;
+}
+
+.wrapper:first-child {
+  margin-left: 0;
+}
+
+.date {
+  color: #666;
+}
+
+.image {
+  border-radius: 6px;
+}
+
+.title {
+  color: #141414;
+  font-weight: bold;
+  margin: 0;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
