@@ -1,10 +1,11 @@
 import React from 'react';
 import Error from 'next/error';
-import Image from 'next/image'
 import {useQuery} from 'react-query'
-import type { MovieListProps } from './type';
-import type { Movie } from '../../types/Movie'
 import getMovieList from '../../utils/getMovieList';
+import MovieThumb from '../MovieThumb';
+import styles from './MovieList.module.css';
+import type { Movie } from '../../types/Movie'
+import type { MovieListProps } from './types';
 
 const MovieList = ({ endpoint, title, subtitle }: MovieListProps): JSX.Element => {
   const { isLoading, data, error } = useQuery(title, () => getMovieList(endpoint));
@@ -14,17 +15,13 @@ const MovieList = ({ endpoint, title, subtitle }: MovieListProps): JSX.Element =
 
   return (
     <>
-      <h1>{title}</h1>
-      <span>{subtitle}</span>
-      {
-        data.results.map((movie: Movie): JSX.Element => (
-          <div key={movie.title}>
-            <Image src={movie.image} alt={`${movie.title} cover`} height="282" width="188"/>
-            <span>{movie.title}</span>
-            <span>{movie.releaseDate}</span>
-          </div>
-        ))
-      }
+      <h2 className={styles.title}>{title}</h2>
+      <span className={styles.subtitle}>{subtitle}</span>
+      <div className={styles.movieWrapper}>
+        {data?.results.map(
+          (movie: Movie): JSX.Element => <MovieThumb movie={movie} key={movie.id} />
+        )}
+      </div>
     </>
   )
 }
