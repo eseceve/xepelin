@@ -12,8 +12,8 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <MovieList title="Más populares" subtitle="Nullam sapien arcu tempor" endpoint="popular" />
-        {/* <MovieList title="Mejor evaluadas" subtitle="Nullam sapien arcu tempor" endpoint="top_rated" /> */}
-        {/* <MovieList title="Próximos estrenos" subtitle="Nullam sapien arcu tempor" endpoint="upcoming" /> */}
+        <MovieList title="Mejor evaluadas" subtitle="Nullam sapien arcu tempor" endpoint="top_rated" />
+        <MovieList title="Próximos estrenos" subtitle="Nullam sapien arcu tempor" endpoint="upcoming" />
       </main>
     </div>
   )
