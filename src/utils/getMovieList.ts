@@ -5,8 +5,8 @@ const API_URL = 'https://api.themoviedb.org/3/movie';
 const API_KEY = 'e08815ebb9a68b5816a9e3ae26b751e1';
 const IMAGE_PREFIX = 'https://image.tmdb.org/t/p/w500/';
 
-const getMovieList = async (endpoint: string): Promise<MovieListResponse<Movie[]>> => {
-  const response = await fetch(`${API_URL}/${endpoint}?api_key=${API_KEY}`);
+const getMovieList = async (endpoint: string, page: number): Promise<MovieListResponse<Movie[]>> => {
+  const response = await fetch(`${API_URL}/${endpoint}?api_key=${API_KEY}&page=${page}`);
   const data: MovieListResponse<MovieResponse[]> = await response.json();
 
   return {
